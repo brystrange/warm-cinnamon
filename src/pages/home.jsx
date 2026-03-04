@@ -22,7 +22,7 @@ function Reveal({ children, delay = 0, y = 20 }) {
 
 const PRODUCTS = [
   {
-    id: "mineshop", emoji: "🛍️", name: "mine-shop",
+    id: "mineshop", emoji: "🛍️", name: "Vanilla Bean",
     cat: "E-Commerce Platform", status: "live",
     desc: "Run your online store with real-time cart reservations, multi-payment support, order tracking, and a full admin suite.",
     tags: ["GCash & Maya", "Live Timers", "Invoice PDF", "Order Management"],
@@ -284,7 +284,7 @@ export default function Home({ navigate }) {
             Warm Cinnamon builds clean, reliable business software for growing Filipino businesses — from e-commerce to HR, designed to reduce friction and get out of your way.
           </p>
           <div className="hm-btns">
-            <button className="hm-btn-dk" onClick={() => navigate("mineshop")}>Explore mine-shop →</button>
+            <button className="hm-btn-dk" onClick={() => navigate("mineshop")}>Explore Vanilla Bean →</button>
             <button className="hm-btn-ol" onClick={() => document.getElementById("hm-prods")?.scrollIntoView({ behavior: "smooth" })}>See all solutions</button>
           </div>
         </div>
@@ -364,7 +364,7 @@ export default function Home({ navigate }) {
             <div className="hm-sec-div" />
             <p className="hm-about-q">"We build the tools your business actually needs — nothing more, nothing less."</p>
             <p className="hm-about-p">Warm Cinnamon is a focused software studio building practical IT solutions for Filipino businesses. We believe good software should feel effortless — like it was always there.</p>
-            <button className="hm-btn-dk" onClick={() => navigate("mineshop")}>Start with mine-shop →</button>
+            <button className="hm-btn-dk" onClick={() => navigate("mineshop")}>Start with Vanilla Bean E-Commerce →</button>
           </Reveal>
         </div>
       </section>
