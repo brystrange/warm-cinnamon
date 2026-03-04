@@ -5,7 +5,7 @@ import Payroll from "./pages/payroll.jsx";
 
 const TABS = [
   { id: "home", label: "Home" },
-  { id: "mineshop", label: "mine-shop" },
+  { id: "mineshop", label: "E-Commerce" },
   { id: "payroll", label: "Payroll", soon: true },
 ];
 
@@ -217,7 +217,7 @@ export default function App() {
             ))}
           </div>
           <div className="nav-right">
-            <button className="nav-cta" onClick={() => go("mineshop")}>Try mine-shop →</button>
+            <button className="nav-cta" onClick={() => go("mineshop")}>Try Vanilla Bean →</button>
           </div>
           <button className="ham" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
         </div>

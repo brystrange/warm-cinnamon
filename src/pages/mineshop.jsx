@@ -486,7 +486,7 @@ export default function MineShop() {
                         <h1 className="ms-h1">Sell smarter.<br /><em>Serve better.</em></h1>
                         <p className="ms-h2">Everything your shop needs, nothing it doesn't.</p>
                         <p className="ms-hero-p">
-                            mine-shop is a complete e-commerce platform for Filipino sellers — with real-time cart reservations, seamless payments, and a powerful admin suite.
+                            Vanilla Bean is a complete e-commerce platform for Filipino sellers — with real-time cart reservations, seamless payments, and a powerful admin suite.
                         </p>
                         <div className="ms-hero-btns">
                             <button className="ms-btn-dk" onClick={() => scrollTo("ms-mockup")}>See it in action</button>
@@ -586,7 +586,7 @@ export default function MineShop() {
                         <Reveal>
                             <span className="ms-slbl">Live Demo</span>
                             <h2 className="ms-stitle">Try it yourself —<br /><em>right now.</em></h2>
-                            <p className="ms-sp">Explore the full mine-shop experience in our live sandbox. Shop as a customer, then log in as admin to see the other side.</p>
+                            <p className="ms-sp">Explore the full Vanilla Bean experience in our live sandbox. Shop as a customer, then log in as admin to see the other side.</p>
                         </Reveal>
                         <Reveal delay={100}>
                             <div className="ms-sbox-g">
@@ -612,7 +612,7 @@ export default function MineShop() {
                                 </div>
                                 <div className="ms-slink">
                                     <div>
-                                        <p className="ms-slink-t">Open the live sandbox and explore mine-shop firsthand.</p>
+                                        <p className="ms-slink-t">Open the live sandbox and explore Vanilla Bean firsthand.</p>
                                         <p className="ms-slink-n">No account needed to browse the store. Admin login required for the dashboard.</p>
                                     </div>
                                     <a href="https://sandbox-mine-shop.vercel.app" target="_blank" rel="noreferrer" className="ms-slink-btn">
@@ -630,7 +630,7 @@ export default function MineShop() {
                         <Reveal>
                             <span className="ms-slbl">Get Started</span>
                             <h2 className="ms-cta-t">Open your shop.<br /><em>Own your sales.</em></h2>
-                            <p className="ms-cta-p">mine-shop brings together everything a Filipino seller needs — beautiful storefront, smart admin tools, and flexible payments — all in one place.</p>
+                            <p className="ms-cta-p">Vanilla Bean brings together everything a Filipino seller needs — beautiful storefront, smart admin tools, and flexible payments — all in one place.</p>
                             <div className="ms-cta-btns">
                                 <button className="ms-btn-dk" onClick={() => scrollTo("ms-sandbox")}>Try the Sandbox</button>
                                 <button className="ms-btn-ol" onClick={() => scrollTo("ms-store")}>Explore Features</button>
