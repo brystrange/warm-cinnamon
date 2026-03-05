@@ -297,7 +297,7 @@ export default function MineShop() {
         }
         .ms-hero-img {
           position: absolute; inset: 0;
-          background-image: url('/public/boxes.jpg');
+          background-image: url('https://64.media.tumblr.com/277e65664b82dd6a00ee9c96e539879a/2817a393c8af4809-04/s2048x3072/723fccdb63b5f9262fecf7d13276f363a4a785b8.jpg');
           background-size: cover; background-position: center;
           opacity: 0;
           transform: scale(1.04);
