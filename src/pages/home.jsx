@@ -83,7 +83,7 @@ export default function Home({ navigate }) {
         }
         .hm-left-img {
           position: absolute; inset: 0;
-          background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1400&q=85&fit=crop');
+          background-image: url('/public/forest2.jpg');
           background-size: cover;
           background-position: center;
           transform: scale(${vis ? 1.0 : 1.04});
@@ -263,7 +263,7 @@ export default function Home({ navigate }) {
             <div className="hm-left-fade-r" />
             <div className="hm-left-caption">
               <p className="hm-left-caption-text">
-                Work smart.<br />Build something real.
+                Work smart.<br />Automate your process.
               </p>
             </div>
           </div>

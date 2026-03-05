@@ -297,7 +297,7 @@ export default function MineShop() {
         }
         .ms-hero-img {
           position: absolute; inset: 0;
-          background-image: url('https://static.vecteezy.com/system/resources/previews/035/384/394/large_2x/ai-generated-an-unscented-white-vanilla-flower-on-a-wooden-surface-free-photo.jpg');
+          background-image: url('/public/boxes.jpg');
           background-size: cover; background-position: center;
           opacity: 0;
           transform: scale(1.04);
@@ -307,11 +307,10 @@ export default function MineShop() {
         .ms-hero-img-fade {
           position: absolute; inset: 0;
           background: linear-gradient(to right,
-            rgba(13,13,11,0.08) 0%,
-            rgba(13,13,11,0.25) 35%,
-            rgba(13,13,11,0.72) 60%,
-            rgba(13,13,11,0.93) 80%,
-            rgba(13,13,11,0.97) 100%
+            transparent 20%,
+            #111110 50%,
+            #111110 90%,
+            #111110 100%
           );
           pointer-events: none;
         }
@@ -339,10 +338,10 @@ export default function MineShop() {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: var(--f); font-size: 0.68rem; font-weight: 600;
           letter-spacing: 0.12em; text-transform: uppercase;
-          color: rgba(255,255,255,0.4);
+          color: rgba(255, 255, 255, 0.84);
           margin-bottom: 24px;
         }
-        .ms-hero-dot { width: 5px; height: 5px; border-radius: 50%; background: #7AB648; animation: ms-pulse 2s infinite; }
+        .ms-hero-dot { width: 6px; height: 6px; border-radius: 50%; background: #7aeb1e; animation: ms-pulse 2s infinite; }
         .ms-hero-h1 {
           font-family: var(--fs);
           font-size: clamp(2.8rem, 5vw, 4.8rem);
@@ -354,7 +353,7 @@ export default function MineShop() {
         .ms-hero-h1 em { font-style: italic; font-weight: 300; color: rgba(255,255,255,0.7); }
         .ms-hero-p {
           font-family: var(--f); font-size: 0.88rem; font-weight: 300;
-          color: rgba(255,255,255,0.45); line-height: 1.75;
+          color: rgba(255, 255, 255, 0.72); line-height: 1.75;
           max-width: 320px; margin-bottom: 40px;
         }
         .ms-hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -393,8 +392,8 @@ export default function MineShop() {
         }
         .ms-stat:last-child { border-right: none; }
         .ms-stat-v {
-          display: block; font-family: var(--fs);
-          font-size: 2rem; font-weight: 400;
+          display: block; font-family: Inter;
+          font-size: 1.5rem; font-weight: 600;
           color: #fff; letter-spacing: -0.02em; margin-bottom: 5px;
         }
         .ms-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
@@ -658,6 +657,7 @@ export default function MineShop() {
         @media (max-width: 600px) {
           .ms-feat-grid { grid-template-columns: 1fr; }
           .ms-stats-inner { grid-template-columns: 1fr 1fr; }
+          .ms-hero-btns { margin-bottom: 80px; }
         }
       `}</style>
 
@@ -669,7 +669,7 @@ export default function MineShop() {
             <div className={`ms-hero-img${vis ? " ms-vis" : ""}`} />
             <div className="ms-hero-img-fade" />
             <div className="ms-hero-img-caption">
-              <p>Sell more.<br />Manage less.</p>
+              <p>Vanilla Bean,<br />Yout partner in selling.</p>
             </div>
           </div>
           <div className="ms-hero-right" style={{ opacity: vis ? 1 : 0, transform: vis ? "none" : "translateY(18px)", transition: "all 0.85s ease 0.15s" }}>
