@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home.jsx";
 import MineShop from "./pages/mineshop.jsx";
 import Payroll from "./pages/payroll.jsx";
+import DeployPage from "./pages/deployPage.jsx";
 
 const TABS = [
   { id: "home", label: "Home" },
@@ -9,7 +11,8 @@ const TABS = [
   { id: "payroll", label: "Payroll", soon: true },
 ];
 
-export default function App() {
+// ─── MAIN SITE (existing tab-based SPA) ──────────────────────
+function MainApp() {
   const [page, setPage] = useState("home");
   const [fading, setFading] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -56,7 +59,6 @@ export default function App() {
           overflow-x: hidden;
         }
 
-        /* ── NAV (hidden on home, shown on other pages) ── */
         .nav {
           position: fixed; top: 0; left: 0; right: 0; z-index: 200;
           height: var(--nav-h);
@@ -64,13 +66,9 @@ export default function App() {
           padding: 0 48px;
           transition: opacity 0.3s, pointer-events 0.3s;
         }
-        .nav.nav-hidden {
-          opacity: 0;
-          pointer-events: none;
-        }
+        .nav.nav-hidden { opacity: 0; pointer-events: none; }
         .nav.nav-visible {
-          opacity: 1;
-          pointer-events: all;
+          opacity: 1; pointer-events: all;
           background: rgba(244,242,238,0.95);
           backdrop-filter: blur(16px);
           border-bottom: 1px solid var(--gray2);
@@ -80,8 +78,6 @@ export default function App() {
           width: 100%; max-width: 1260px; margin: 0 auto;
           display: flex; align-items: center; justify-content: space-between; gap: 32px;
         }
-
-        /* Logo */
         .nav-logo {
           display: flex; align-items: center; gap: 9px;
           font-family: var(--f); font-size: 0.9rem; font-weight: 700;
@@ -96,12 +92,9 @@ export default function App() {
           position: relative; overflow: hidden; flex-shrink: 0;
         }
         .nav-logo-icon::before {
-          content: '';
-          position: absolute; left: 0; top: 0; bottom: 0;
+          content: ''; position: absolute; left: 0; top: 0; bottom: 0;
           width: 50%; background: var(--black);
         }
-
-        /* Tabs */
         .nav-tabs { display: flex; align-items: center; gap: 2px; }
         .nav-tab {
           background: none; border: none; cursor: pointer;
@@ -119,7 +112,6 @@ export default function App() {
           padding: 2px 6px; border-radius: 4px; text-transform: uppercase;
           border: 1px solid var(--gray2); font-family: var(--f);
         }
-
         .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .nav-cta {
           background: var(--black); color: var(--white);
@@ -129,13 +121,11 @@ export default function App() {
           white-space: nowrap;
         }
         .nav-cta:hover { background: #2a2a28; }
-
         .ham {
           display: none; flex-direction: column; gap: 5px;
           background: none; border: none; cursor: pointer; padding: 4px;
         }
         .ham span { display: block; width: 22px; height: 1.5px; background: var(--black); border-radius: 2px; }
-
         .mob-menu {
           display: none; position: fixed; inset: 0; z-index: 190;
           background: var(--cream);
@@ -156,23 +146,12 @@ export default function App() {
         }
         .mob-tab.active { color: var(--black); }
         .mob-tab:hover { color: var(--black); }
-
-        /* ── PAGE WRAP ── */
         .page-wrap { transition: opacity 0.18s ease; }
         .page-wrap.fading { opacity: 0; }
-        /* Home: fullscreen, no padding */
-        .page-wrap.is-home {
-          padding-top: 0;
-          height: 100vh;
-          overflow: hidden;
-        }
-        /* Other pages: normal padding for fixed nav */
+        .page-wrap.is-home { padding-top: 0; height: 100vh; overflow: hidden; }
         .page-wrap.not-home { padding-top: var(--nav-h); }
-
-        /* ── FOOTER (hidden on home) ── */
         .wc-footer {
-          background: var(--black);
-          color: rgba(255,255,255,0.4);
+          background: var(--black); color: rgba(255,255,255,0.4);
           padding: 28px 52px;
           display: flex; align-items: center;
           justify-content: space-between; flex-wrap: wrap; gap: 16px;
@@ -191,8 +170,7 @@ export default function App() {
           position: relative; overflow: hidden;
         }
         .wc-footer-icon::before {
-          content: '';
-          position: absolute; left: 0; top: 0; bottom: 0;
+          content: ''; position: absolute; left: 0; top: 0; bottom: 0;
           width: 50%; background: rgba(255,255,255,0.2);
           border-right: 1px solid rgba(255,255,255,0.3);
         }
@@ -214,7 +192,6 @@ export default function App() {
         }
       `}</style>
 
-      {/* NAV — hidden on home page */}
       <nav className={`nav${page === "home" ? " nav-hidden" : " nav-visible"}`}>
         <div className="nav-inner">
           <div className="nav-logo" onClick={() => go("home")}>
@@ -241,7 +218,6 @@ export default function App() {
         </div>
       </nav>
 
-      {/* MOBILE MENU */}
       <div className={`mob-menu${menuOpen ? " open" : ""}`}>
         <button className="mob-close" onClick={() => setMenuOpen(false)}>×</button>
         {TABS.map(t => (
@@ -251,7 +227,6 @@ export default function App() {
         ))}
       </div>
 
-      {/* CONTENT */}
       <div className={`page-wrap${fading ? " fading" : ""}${page === "home" ? " is-home" : " not-home"}`}>
         {page === "home" && <Home navigate={go} />}
         {page === "mineshop" && <MineShop />}
@@ -271,5 +246,17 @@ export default function App() {
         </footer>
       </div>
     </>
+  );
+}
+
+// ─── ROOT WITH ROUTER ─────────────────────────────────────────
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/deploy" element={<DeployPage />} />
+        <Route path="*" element={<MainApp />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

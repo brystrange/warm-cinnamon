@@ -83,7 +83,7 @@ export default function Home({ navigate }) {
         }
         .hm-left-img {
           position: absolute; inset: 0;
-          background-image: url('/public/forest2.jpg');
+          background-image: url('https://64.media.tumblr.com/565797b7bbfa9c68df43de37d8206a67/342ebfb7633d1203-97/s2048x3072/f73bcbb23f2d4bab723c942deb2de765e7e22dff.jpg');
           background-size: cover;
           background-position: center;
           transform: scale(${vis ? 1.0 : 1.04});
