@@ -249,7 +249,7 @@ function MockupTabs() {
   );
 }
 
-export default function MineShop() {
+export default function Vanillabean() {
   const [vis, setVis] = useState(false);
   const [copied, setCopied] = useState("");
   useEffect(() => { const t = setTimeout(() => setVis(true), 60); return () => clearTimeout(t); }, []);
@@ -711,7 +711,7 @@ export default function MineShop() {
         </div>
 
         {/* ── STORE FEATURES ── */}
-        <section className="ms-sec" style={{ background: "var(--bg)" }}>
+        <section className="ms-sec" id="ms-sec" style={{ background: "var(--bg)" }}>
           <div className="ms-sec-in">
             <div className="ms-feat-layout">
               <div className="ms-feat-sticky">
@@ -787,8 +787,8 @@ export default function MineShop() {
                 <div className="ms-cred-card">
                   <p className="ms-cred-lbl">Admin Credentials</p>
                   {[
-                    { label: "Email",    val: "sandbox@mineshop.com", key: "email" },
-                    { label: "Password", val: "sandbox1",             key: "pass" },
+                    { label: "Email",    val: "vanilla-bean@admin.com", key: "email" },
+                    { label: "Password", val: "vanillabean1",             key: "pass" },
                   ].map(c => (
                     <div className="ms-cred-row" key={c.key}>
                       <div>
@@ -809,7 +809,7 @@ export default function MineShop() {
                     <p className="ms-link-t">Open the live sandbox and explore Vanilla Bean firsthand.</p>
                     <p className="ms-link-sub">No account needed to browse. Admin login required for the dashboard.</p>
                   </div>
-                  <a href="https://sandbox-mine-shop.vercel.app" target="_blank" rel="noreferrer" className="ms-link-btn">
+                  <a href="https://vanilla-bean.vercel.app" target="_blank" rel="noreferrer" className="ms-link-btn">
                     Open Sandbox <IcArrow />
                   </a>
                 </div>

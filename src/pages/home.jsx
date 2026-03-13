@@ -254,6 +254,7 @@ export default function Home({ navigate }) {
           </div>
         </div>
 
+
         {/* MAIN SPLIT */}
         <div className="hm-split">
 
@@ -281,7 +282,7 @@ export default function Home({ navigate }) {
               <div className="hm-btns">
 
                 {/* Vanilla Bean — E-Commerce */}
-                <button className="hm-btn" onClick={() => navigate("mineshop")}>
+                <button className="hm-btn" onClick={() => navigate("vanillabean")}>
                   <div className="hm-btn-left">
                     <span className="hm-btn-label">E-Commerce · Live Now</span>
                     <span className="hm-btn-title">Vanilla Bean</span>

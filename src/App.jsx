@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home.jsx";
-import MineShop from "./pages/mineshop.jsx";
+import Vanillabean from "./pages/vanillabean.jsx";
 import Payroll from "./pages/payroll.jsx";
 import DeployPage from "./pages/deployPage.jsx";
 
 const TABS = [
   { id: "home", label: "Home" },
-  { id: "mineshop", label: "E-Commerce" },
+  { id: "vanillabean", label: "E-Commerce" },
   { id: "payroll", label: "Payroll", soon: true },
 ];
 
@@ -212,7 +212,13 @@ function MainApp() {
             ))}
           </div>
           <div className="nav-right">
-            <button className="nav-cta" onClick={() => go("mineshop")}>Try Vanilla Bean</button>
+            <button className="nav-cta" onClick={() => {
+  if (page === "vanillabean") {
+    document.getElementById("ms-sec")?.scrollIntoView({ behavior: "smooth" });
+  } else {
+    go("vanillabean");
+  }
+}}>Try Vanilla Bean</button>
           </div>
           <button className="ham" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
         </div>
@@ -229,7 +235,7 @@ function MainApp() {
 
       <div className={`page-wrap${fading ? " fading" : ""}${page === "home" ? " is-home" : " not-home"}`}>
         {page === "home" && <Home navigate={go} />}
-        {page === "mineshop" && <MineShop />}
+        {page === "vanillabean" && <Vanillabean />}
         {page === "payroll" && <Payroll />}
 
         <footer className={`wc-footer${page === "home" ? " footer-hidden" : ""}`}>

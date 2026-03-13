@@ -30,7 +30,7 @@ const SYSTEMS = [
 
   // ── VANILLA BEAN — E-Commerce ────────────────────────────
   {
-    id: 'mineshop',
+    id: 'vanillabean',
     name: 'Vanilla Bean',
     label: 'E-Commerce Platform',
     status: 'live',
