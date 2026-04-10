@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home.jsx";
 import Vanillabean from "./pages/vanillabean.jsx";
+import Honeycomb from "./pages/honeycomb.jsx";
 import Payroll from "./pages/payroll.jsx";
 import DeployPage from "./pages/deployPage.jsx";
 
 const TABS = [
   { id: "home", label: "Home" },
   { id: "vanillabean", label: "E-Commerce" },
-  { id: "payroll", label: "Payroll", soon: true },
+  { id: "honeycomb", label: "Reservation" },
 ];
 
 // ─── MAIN SITE (existing tab-based SPA) ──────────────────────
@@ -236,6 +237,7 @@ function MainApp() {
       <div className={`page-wrap${fading ? " fading" : ""}${page === "home" ? " is-home" : " not-home"}`}>
         {page === "home" && <Home navigate={go} />}
         {page === "vanillabean" && <Vanillabean />}
+        {page === "honeycomb" && <Honeycomb />}
         {page === "payroll" && <Payroll />}
 
         <footer className={`wc-footer${page === "home" ? " footer-hidden" : ""}`}>

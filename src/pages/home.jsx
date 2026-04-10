@@ -294,13 +294,17 @@ export default function Home({ navigate }) {
                   </div>
                 </button>
 
-                {/* Payroll — Coming Soon */}
-                <button className="hm-btn" onClick={() => navigate("payroll")}>
+                {/* Honeycomb — Online Reservation */}
+                <button className="hm-btn" onClick={() => navigate("honeycomb")}>
                   <div className="hm-btn-left">
-                    <span className="hm-btn-label">HR & Payroll</span>
-                    <span className="hm-btn-title">Payroll System</span>
+                    <span className="hm-btn-label">Online Reservation · Live Now</span>
+                    <span className="hm-btn-title">Honeycomb</span>
                   </div>
-                  <span className="hm-btn-soon">Coming Soon</span>
+                  <div className="hm-btn-arr">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </div>
                 </button>
 
               </div>
@@ -314,7 +318,7 @@ export default function Home({ navigate }) {
           <div className="hm-bottombar-center">
             <span>e-commerce</span>
             <span className="hm-bottombar-sep">+</span>
-            <span>payroll</span>
+            <span>reservation</span>
             <span className="hm-bottombar-sep">+</span>
             <span>more coming</span>
           </div>
