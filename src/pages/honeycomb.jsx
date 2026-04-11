@@ -618,12 +618,32 @@ export default function Honeycomb() {
           transition: transform 0.2s, box-shadow 0.2s;
         }
         .hc-pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
-        .hc-pricing-pop {
+        
+        /* Tier 2: Amber */
+        .hc-tier-2 {
           border-color: var(--amber); background: var(--amber-bg);
           box-shadow: 0 4px 24px rgba(217,119,6,0.1);
         }
-        .hc-pricing-pop .hc-pc-name { color: var(--amber-dk); }
-        .hc-pricing-pop .hc-pc-price { color: var(--amber); }
+        .hc-tier-2 .hc-pc-name { color: var(--amber-dk); }
+        .hc-tier-2 .hc-pc-price { color: var(--amber); }
+
+        /* Tier 3: Rust/Terracotta */
+        .hc-tier-3 {
+          border-color: #EA580C; background: #FFF7ED;
+          box-shadow: 0 4px 24px rgba(234,88,12,0.1);
+        }
+        .hc-tier-3 .hc-pc-name { color: #9A3412; }
+        .hc-tier-3 .hc-pc-price { color: #EA580C; }
+
+        /* Tier 4: Dark Premium */
+        .hc-tier-4 {
+          border-color: var(--ink); background: var(--ink);
+          box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+        }
+        .hc-tier-4 .hc-pc-name { color: var(--amber-l); }
+        .hc-tier-4 .hc-pc-price { color: #fff; }
+        .hc-tier-4 .hc-pc-mo { color: rgba(255,255,255,0.6); }
+
         .hc-pc-name { font-size: 0.8rem; font-weight: 700; color: var(--ink2); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
         .hc-pc-price { font-family: var(--fs); font-size: 2.6rem; font-weight: 600; color: var(--ink); line-height: 1; margin-bottom: 6px; }
         .hc-pc-mo { font-size: 0.75rem; color: var(--ink3); font-weight: 500; }
@@ -884,21 +904,21 @@ export default function Honeycomb() {
                 </div>
               </Reveal>
               <Reveal delay={150}>
-                <div className="hc-pricing-card hc-pricing-pop">
+                <div className="hc-pricing-card hc-tier-2">
                   <p className="hc-pc-name">4 to 5 Courts</p>
                   <p className="hc-pc-price">₱2,500</p>
                   <p className="hc-pc-mo">per month</p>
                 </div>
               </Reveal>
               <Reveal delay={200}>
-                <div className="hc-pricing-card">
+                <div className="hc-pricing-card hc-tier-3">
                   <p className="hc-pc-name">6 to 10 Courts</p>
                   <p className="hc-pc-price">₱3,000</p>
                   <p className="hc-pc-mo">per month</p>
                 </div>
               </Reveal>
               <Reveal delay={250}>
-                <div className="hc-pricing-card">
+                <div className="hc-pricing-card hc-tier-4">
                   <p className="hc-pc-name">10+ Courts</p>
                   <p className="hc-pc-price">₱4,000</p>
                   <p className="hc-pc-mo">per month</p>

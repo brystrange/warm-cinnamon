@@ -213,13 +213,9 @@ function MainApp() {
             ))}
           </div>
           <div className="nav-right">
-            <button className="nav-cta" onClick={() => {
-  if (page === "vanillabean") {
-    document.getElementById("ms-sec")?.scrollIntoView({ behavior: "smooth" });
-  } else {
-    go("vanillabean");
-  }
-}}>Try Vanilla Bean</button>
+            <button className="nav-cta" onClick={() => window.location.href = "mailto:hello@warmcinnamon.ph"}>
+              Contact Us
+            </button>
           </div>
           <button className="ham" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
         </div>
