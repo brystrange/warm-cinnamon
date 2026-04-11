@@ -960,7 +960,7 @@ export default function Honeycomb() {
                     </div>
                   ))}
                   <div className="hc-info-note">
-                    <strong>Quick & secure:</strong> Your slot is locked for 15 minutes during checkout. Complete your QRPH payment to confirm the reservation.
+                    <strong>Quick & secure:</strong> Customer slot is locked for 15 minutes during checkout. QRPH payment must be completed first to confirm the reservation.
                   </div>
                 </div>
                 <div className="hc-link-card">
