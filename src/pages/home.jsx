@@ -240,7 +240,12 @@ export default function Home({ navigate }) {
           .hm-left-caption { bottom: 24px; left: 24px; }
           .hm-right { padding: 48px 28px 100px; }
           .hm-right-content { max-width: 100%; }
-          .hm-bottombar { padding: 16px 24px; }
+          .hm-bottombar { 
+            padding: 16px 24px; 
+            flex-direction: column; 
+            gap: 8px; 
+          }
+          .hm-bottombar-center { flex-wrap: wrap; justify-content: center; text-align: center; }
           .hm-bottombar-right { display: none; }
         }
       `}</style>

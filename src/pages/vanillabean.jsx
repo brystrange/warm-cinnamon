@@ -10,10 +10,10 @@ function useInView(t = 0.08) {
   }, []);
   return [ref, v];
 }
-function Reveal({ children, delay = 0, y = 16 }) {
+function Reveal({ children, delay = 0, y = 16, className }) {
   const [ref, v] = useInView();
   return (
-    <div ref={ref} style={{
+    <div ref={ref} className={className} style={{
       opacity: v ? 1 : 0,
       transform: v ? "none" : `translateY(${y}px)`,
       transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
@@ -431,7 +431,13 @@ export default function Vanillabean() {
           border-top: 1px solid var(--bdr);
           border-left: 1px solid var(--bdr);
         }
+        .ms-feat-reveal {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
         .ms-feat-cell {
+          flex: 1;
           padding: 28px 26px;
           border-bottom: 1px solid var(--bdr);
           border-right: 1px solid var(--bdr);
@@ -723,7 +729,7 @@ export default function Vanillabean() {
               </div>
               <div className="ms-feat-grid">
                 {STORE_FEATURES.map((f, i) => (
-                  <Reveal key={f.title} delay={i * 55}>
+                  <Reveal className="ms-feat-reveal" key={f.title} delay={i * 55}>
                     <div className="ms-feat-cell">
                       <div className="ms-feat-icon"><f.Icon /></div>
                       <p className="ms-feat-title">{f.title}</p>
@@ -761,7 +767,7 @@ export default function Vanillabean() {
               </div>
               <div className="ms-feat-grid">
                 {ADMIN_FEATURES.map((f, i) => (
-                  <Reveal key={f.title} delay={i * 55}>
+                  <Reveal className="ms-feat-reveal" key={f.title} delay={i * 55}>
                     <div className="ms-feat-cell">
                       <div className="ms-feat-icon"><f.Icon /></div>
                       <p className="ms-feat-title">{f.title}</p>

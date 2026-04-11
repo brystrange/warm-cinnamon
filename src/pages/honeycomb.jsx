@@ -10,10 +10,10 @@ function useInView(t = 0.08) {
   }, []);
   return [ref, v];
 }
-function Reveal({ children, delay = 0, y = 16 }) {
+function Reveal({ children, delay = 0, y = 16, className }) {
   const [ref, v] = useInView();
   return (
-    <div ref={ref} style={{
+    <div ref={ref} className={className} style={{
       opacity: v ? 1 : 0,
       transform: v ? "none" : `translateY(${y}px)`,
       transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
@@ -428,7 +428,13 @@ export default function Honeycomb() {
         .hc-feat-grid.hc-feat-grid-admin {
           grid-template-columns: 1fr 1fr 1fr;
         }
+        .hc-feat-reveal {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
         .hc-feat-cell {
+          flex: 1;
           padding: 28px 26px;
           border-bottom: 1px solid var(--bdr);
           border-right: 1px solid var(--bdr);
@@ -598,6 +604,35 @@ export default function Honeycomb() {
         .hc-am-badge-blocked { background: var(--amber-bg); color: var(--amber-dk); }
 
         /* ═══════════════════════════
+           PRICING SECTION
+        ═══════════════════════════ */
+        .hc-pricing-grid {
+          display: grid; grid-template-columns: repeat(4, 1fr);
+          gap: 24px; margin-top: 44px;
+        }
+        .hc-pricing-card {
+          border: 1px solid var(--bdr); border-radius: 12px;
+          padding: 32px 28px; background: var(--bg);
+          text-align: center; display: flex; flex-direction: column;
+          justify-content: center;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .hc-pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+        .hc-pricing-pop {
+          border-color: var(--amber); background: var(--amber-bg);
+          box-shadow: 0 4px 24px rgba(217,119,6,0.1);
+        }
+        .hc-pricing-pop .hc-pc-name { color: var(--amber-dk); }
+        .hc-pricing-pop .hc-pc-price { color: var(--amber); }
+        .hc-pc-name { font-size: 0.8rem; font-weight: 700; color: var(--ink2); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+        .hc-pc-price { font-family: var(--fs); font-size: 2.6rem; font-weight: 600; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+        .hc-pc-mo { font-size: 0.75rem; color: var(--ink3); font-weight: 500; }
+        .hc-pricing-fine {
+          margin-top: 36px; font-size: 0.72rem; color: var(--ink4);
+          text-align: center; line-height: 1.65; max-width: 660px; margin-inline: auto;
+        }
+
+        /* ═══════════════════════════
            LIVE LINK SECTION
         ═══════════════════════════ */
         .hc-live-grid {
@@ -709,6 +744,7 @@ export default function Honeycomb() {
           .hc-feat-sticky { position: static; }
           .hc-feat-grid.hc-feat-grid-admin { grid-template-columns: 1fr; }
           .hc-live-grid { grid-template-columns: 1fr; }
+          .hc-pricing-grid { grid-template-columns: 1fr; }
           .hc-sc-grid { grid-template-columns: 60px repeat(3, 1fr); }
         }
         @media (max-width: 600px) {
@@ -780,7 +816,7 @@ export default function Honeycomb() {
               </div>
               <div className="hc-feat-grid">
                 {PLAYER_FEATURES.map((f, i) => (
-                  <Reveal key={f.title} delay={i * 55}>
+                  <Reveal className="hc-feat-reveal" key={f.title} delay={i * 55}>
                     <div className="hc-feat-cell">
                       <div className="hc-feat-icon"><f.Icon /></div>
                       <p className="hc-feat-title">{f.title}</p>
@@ -818,7 +854,7 @@ export default function Honeycomb() {
               </div>
               <div className="hc-feat-grid hc-feat-grid-admin">
                 {ADMIN_FEATURES.map((f, i) => (
-                  <Reveal key={f.title} delay={i * 55}>
+                  <Reveal className="hc-feat-reveal" key={f.title} delay={i * 55}>
                     <div className="hc-feat-cell">
                       <div className="hc-feat-icon"><f.Icon /></div>
                       <p className="hc-feat-title">{f.title}</p>
@@ -831,8 +867,54 @@ export default function Honeycomb() {
           </div>
         </section>
 
+        {/* ── PRICING ── */}
+        <section className="hc-sec" id="hc-pricing" style={{ background: "var(--bg)", borderTop: "1px solid var(--bdr)" }}>
+          <div className="hc-sec-in" style={{ maxWidth: 1080 }}>
+            <Reveal>
+              <div className="hc-eyebrow">Pricing Plans</div>
+              <h2 className="hc-h2">Simple, transparent<br /><em>pricing.</em></h2>
+              <p className="hc-sub">All pricing tiers are inclusive of 1 admin access and a custom domain.</p>
+            </Reveal>
+            <div className="hc-pricing-grid">
+              <Reveal delay={100}>
+                <div className="hc-pricing-card">
+                  <p className="hc-pc-name">1 to 3 Courts</p>
+                  <p className="hc-pc-price">₱1,500</p>
+                  <p className="hc-pc-mo">per month</p>
+                </div>
+              </Reveal>
+              <Reveal delay={150}>
+                <div className="hc-pricing-card hc-pricing-pop">
+                  <p className="hc-pc-name">4 to 5 Courts</p>
+                  <p className="hc-pc-price">₱2,500</p>
+                  <p className="hc-pc-mo">per month</p>
+                </div>
+              </Reveal>
+              <Reveal delay={200}>
+                <div className="hc-pricing-card">
+                  <p className="hc-pc-name">6 to 10 Courts</p>
+                  <p className="hc-pc-price">₱3,000</p>
+                  <p className="hc-pc-mo">per month</p>
+                </div>
+              </Reveal>
+              <Reveal delay={250}>
+                <div className="hc-pricing-card">
+                  <p className="hc-pc-name">10+ Courts</p>
+                  <p className="hc-pc-price">₱4,000</p>
+                  <p className="hc-pc-mo">per month</p>
+                </div>
+              </Reveal>
+            </div>
+            <Reveal delay={300}>
+              <p className="hc-pricing-fine">
+                We use PayMongo® to make your booking experience fast and secure.<br/>Please note a 1.34% processing fee is applied by the payment provider for all QRPH transactions.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ── LIVE SITE LINK ── */}
-        <section className="hc-sec" id="hc-live" style={{ background: "var(--bg)" }}>
+        <section className="hc-sec" id="hc-live" style={{ background: "var(--bg2)", borderTop: "1px solid var(--bdr)" }}>
           <div className="hc-sec-in" style={{ maxWidth: 860 }}>
             <Reveal>
               <div className="hc-eyebrow">Live Now</div>
